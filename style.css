@@ -14,20 +14,24 @@ html, body {
 }
 
 .scrollable {
+	position: relative;
 	margin: 0;
 	padding: 0;
 	border: 0;
 	width: 100%;
 	height:100%;
 	-webkit-overflow-scrolling: touch !important; 
-	 
+	overflow-y: scroll !important;
 }
 
 .scrollable iframe {
-	border:0;
+	position: absolute;
+	top:0;
+	left: 0;
+	border: 0;
 	margin: 0;
 	padding: 0;
-	width:98%;
+	width:100%;
 	height:100%;
 }
 
