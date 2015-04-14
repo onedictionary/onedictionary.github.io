@@ -23,16 +23,13 @@ html, body {
 	overflow-y: scroll !important;
 }
 
-.scrollable iframe {
+.scrollable object {
 	border: 0;
 	margin: 0;
 	padding: 0;
-	width: 1px;
-    min-width: 100%;
+    width: 100%;
 	height:100%;
 }
-
-
 
 @-webkit-viewport {width: device-width;}
 @-moz-viewport {width: device-width;}
