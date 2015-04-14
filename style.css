@@ -31,7 +31,7 @@ html, body {
 	padding: 0;
 }
 
-iframe, object, embed {max-width: 100%;}
+iframe, object, embed {max-width: 100% !important;}
 
 @-webkit-viewport {width: device-width;}
 @-moz-viewport {width: device-width;}
