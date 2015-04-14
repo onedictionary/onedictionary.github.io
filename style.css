@@ -14,7 +14,6 @@ html, body {
 }
 
 .scrollable {
-	position: relative;
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -25,9 +24,6 @@ html, body {
 }
 
 .scrollable iframe {
-	position: absolute;
-	top:0;
-	left: 0;
 	border: 0;
 	margin: 0;
 	padding: 0;
