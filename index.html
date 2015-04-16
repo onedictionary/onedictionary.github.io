@@ -18,13 +18,53 @@
 		<div class="container">
 
 			<div class="navigation">
-				<input id="search" type="text" placeholder="Search" autofocus="autofocus"/>
+				<input id="search" type="text" placeholder="Search" autofocus="autofocus" onkeydown="inputenter(event, this.value)" />
+
+				<div class="btn selected" id="oxfo" onclick="whenclick(this)">Oxford Dictionaries</div>
+				<div class="btn" id="dict" onclick="whenclick(this)">Dictionary.com</div>
+				<div class="btn" id="macm" onclick="whenclick(this)">Macmillan Dictionary</div>
 			</div>
 
-			<div class="scrollable">
-				<iframe src="http://www.macmillandictionary.com/dictionary/british/car"></iframe>
-			</div>
+			<div class="scrollable"><iframe id="frm" src="http://www.macmillandictionary.com/dictionary/british/car"></iframe></div>
+
 		</div>
+
+		<script type="text/javascript">
+			function inputenter(event, searchvalue) {
+				if (event.keyCode==13) {
+					document.activeElement.blur();
+					choosewebsite(searchvalue);
+				}
+			}
+
+			function choosewebsite(searchvalue) {
+				var src;
+				var siteid = document.getElementsByClassName("selected")[0].id;
+
+				switch(siteid) {
+					case "oxfo":
+						src = "http://www.oxforddictionaries.com/definition/english/" + searchvalue.replace(' ', '-') + "#firstClickFreeAllowed";
+						break;
+					case "dict":
+						src = "http://dictionary.reference.com/browse/" + searchvalue + "#source-luna";
+						break;
+					case "macm":
+						src = "http://www.macmillandictionary.com/dictionary/british/" + searchvalue.replace(' ', '-') + "#headword";
+						break;
+					default:
+				}
+				document.getElementById('frm').src = src;
+			}
+
+			function whenclick(selectedbutton) {
+				document.getElementsByClassName("selected")[0].className = "btn";
+				selectedbutton.className += " selected";
+				searchvalue = document.getElementById("search").value;
+				choosewebsite(searchvalue);
+			}
+
+		</script>
+
 	</body>
 
 </html>
