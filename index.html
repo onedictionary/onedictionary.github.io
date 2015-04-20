@@ -12,9 +12,8 @@
 
 		<script>
 			if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPad/i))){
-   document.styleSheets[0].insertRule(".scrollable { -webkit-overflow-scrolling: touch !important }", 6);
-   document.styleSheets[0].insertRule(".scrollable { overflow-y: scroll !important }", 7);
-   document.styleSheets[0].insertRule("iframe { max-width:100% !important }", 8);
+   document.styleSheets[0].insertRule(".scrollable { -webkit-overflow-scrolling: touch !important; overflow-y: scroll !important;}", 6);
+   document.styleSheets[0].insertRule("iframe { max-width:100% !important }", 7);
 }
 		</script>
 
