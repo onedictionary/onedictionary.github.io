@@ -10,26 +10,34 @@
 
 		<link rel="stylesheet" href="style.css">
 
+		<script>
+			if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))){
+   document.styleSheets[0].insertRule(".scrollable { -webkit-overflow-scrolling: touch !important; overflow-y: scroll !important; } iframe{max-width:100% !important;}", 0);}
+		</script>
+
 	</head>
 
 	<body>
-		<div class="container">
+		
+		<main>
+			<input id="search" type="text" placeholder="Type a word" autofocus="autofocus" onkeydown="inputenter(event, this.value)" />
 
-			<div class="navigation">
-				<input id="search" type="text" placeholder="Search" autofocus="autofocus" onkeydown="inputenter(event, this.value)" />
-
+			<nav>
 				<div class="btn selected" id="oxfo" onclick="whenclick(this)">Oxford Dictionaries</div>
 				<div class="btn" id="dict" onclick="whenclick(this)">Dictionary.com</div>
 				<div class="btn" id="macm" onclick="whenclick(this)">Macmillan Dictionary</div>
-			</div>
 
-			<div class="scrollable"><iframe id="frm" src="http://www.macmillandictionary.com/dictionary/british/car"></iframe></div>
+				<div class="panic" onclick="panic()"><div class="circle">PANIC</div></div>
+			</nav>
+		</main>
 
-		</div>
+		<div class="scrollable"><iframe id="frm" src=""></iframe></div>
+
+		
 
 		<script type="text/javascript">
-			function inputenter(event, searchvalue) {
-				if (event.keyCode==13) {
+			function inputenter(e, searchvalue) {
+				if (e.keyCode==13) {
 					document.activeElement.blur();
 					choosewebsite(searchvalue);
 				}
@@ -59,6 +67,10 @@
 				selectedbutton.className += " selected";
 				searchvalue = document.getElementById("search").value;
 				choosewebsite(searchvalue);
+			}
+
+			function panic() {
+				document.getElementById('frm').src = "http://www.tureng.com/search/" + document.getElementById("search").value + "#englishResultsTable";
 			}
 
 		</script>
