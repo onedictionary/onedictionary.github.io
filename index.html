@@ -12,7 +12,7 @@
 
 		<script>
 			if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPad/i))){
-   document.styleSheets[0].insertRule(".scrollable { -webkit-overflow-scrolling: touch !important; overflow-y: scroll !important;}", 6);
+   document.styleSheets[0].insertRule(".scrollable { -webkit-overflow-scrolling: touch !important; overflow: auto; overflow-x: hidden;}", 6);
 }
 		</script>
 
