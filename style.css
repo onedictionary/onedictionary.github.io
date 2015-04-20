@@ -1,8 +1,4 @@
-*, *:before, *:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
+*, *:before, *:after {box-sizing: border-box;}
 
 html, body {
 	margin: 0;
@@ -39,12 +35,20 @@ main {
 	height:100%;
 }
 
-.selected {
-	background: #22638F;
+.btn {
+	min-height: 40px;
+	font: 1.2em  Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	margin-bottom: 1px;
+	line-height: 2;
+	background: #3498db;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
 }
 
-.btn {
-	cursor: pointer;
+.selected {
+	background: #22638F;
 }
 
 .panic {
