@@ -18,7 +18,7 @@
 	<body>
 		
 		<main>
-			<input id="search" type="text" placeholder="Type a word" autofocus="autofocus" onkeydown="inputenter(event, this.value)" />
+			<input id="search" type="text" placeholder="Type a word" autofocus="autofocus" autocorrect="off" autocapitalize="off" onkeydown="inputenter(event, this.value)" />
 
 			<div class="arrow" onclick="togglenav()"></div>
 
@@ -71,6 +71,7 @@
 			}
 
 			function btnclk(selectedbutton) {
+				togglenav();
 				document.getElementsByClassName("selected")[0].className = "btn";
 				selectedbutton.className += " selected";
 				searchvalue = document.getElementById("search").value;
@@ -78,7 +79,7 @@
 			}
 
 			function panic() {
-				document.getElementById('frm').src = "http://www.tureng.com/search/" + document.getElementById("search").value + "#englishResultsTable";
+				document.getElementById('frm').src = "http://www.tureng.com/search/" + document.getElementById("search").value;
 			}
 
 			function togglenav() {
