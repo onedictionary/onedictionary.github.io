@@ -10,8 +10,7 @@
 		<link rel="stylesheet" href="style.css">
 
 		<script>
-			if((navigator.userAgent.match(/iPad|iPhone/i))){
-   document.styleSheets[0].insertRule(".scrollable { overflow: auto; overflow-x: hidden; -webkit-overflow-scrolling:touch;}", 2);}
+			if((navigator.userAgent.match(/iPad|iPhone/i))){document.styleSheets[0].insertRule(".scrollable{overflow:auto; overflow-x: hidden; -webkit-overflow-scrolling:touch;}", 2);}
 		</script>
 
 	</head>
@@ -21,10 +20,14 @@
 		<main>
 			<input id="search" type="text" placeholder="Type a word" autofocus="autofocus" onkeydown="inputenter(event, this.value)" />
 
+			<div class="arrow" onclick="togglenav()"></div>
+
 			<nav>
-				<div class="btn selected" id="oxfo" onclick="whenclick(this)">Oxford Dictionaries</div>
-				<div class="btn" id="dict" onclick="whenclick(this)">Dictionary.com</div>
-				<div class="btn" id="macm" onclick="whenclick(this)">Macmillan Dictionary</div>
+				<div class="btn selected" id="oxfo" onclick="btnclk(this)">Oxford Dictionaries</div>
+				<div class="btn" id="dict" onclick="btnclk(this)">Dictionary.com</div>
+				<div class="btn" id="macm" onclick="btnclk(this)">Macmillan Dictionary</div>
+				<div class="btn" id="thes" onclick="btnclk(this)">Thesaurus.com</div>
+				<div class="btn" id="ozdi" onclick="btnclk(this)">Ozdic.com</div>
 
 				<div class="panic" onclick="panic()"><div class="circle">PANIC</div></div>
 			</nav>
@@ -56,12 +59,18 @@
 					case "macm":
 						src = "http://www.macmillandictionary.com/dictionary/british/" + searchvalue.replace(' ', '-') + "#headword";
 						break;
+					case "thes":
+						src = "http://www.thesaurus.com/browse/" + searchvalue + "#headword-star";
+						break;
+					case "ozdi":
+						src = "http://www.ozdic.com/collocation-dictionary/" + searchvalue;
+						break;
 					default:
 				}
 				document.getElementById('frm').src = src;
 			}
 
-			function whenclick(selectedbutton) {
+			function btnclk(selectedbutton) {
 				document.getElementsByClassName("selected")[0].className = "btn";
 				selectedbutton.className += " selected";
 				searchvalue = document.getElementById("search").value;
@@ -70,6 +79,11 @@
 
 			function panic() {
 				document.getElementById('frm').src = "http://www.tureng.com/search/" + document.getElementById("search").value + "#englishResultsTable";
+			}
+
+			function togglenav() {
+				document.getElementsByClassName("arrow")[0].classList.toggle("on");
+				document.getElementsByTagName("nav")[0].classList.toggle("togglenav");
 			}
 
 		</script>
