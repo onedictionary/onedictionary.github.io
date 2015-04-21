@@ -18,7 +18,7 @@
 	<body>
 		
 		<main>
-			<input id="search" type="text" placeholder="Type a word" autofocus="autofocus" autocorrect="off" autocapitalize="off" onkeydown="inputenter(event, this.value)" />
+			<input id="search" type="text" placeholder="Type a word" autofocus="autofocus" autocorrect="off" autocapitalize="off" onfocus="this.value=''" onkeydown="inputenter(event, this.value)" />
 
 			<div class="arrow" onclick="togglenav()"></div>
 
@@ -71,7 +71,7 @@
 			}
 
 			function btnclk(selectedbutton) {
-				togglenav();
+				if(document.getElementsByTagName("nav")[0].classList.contains("togglenav")){togglenav();}
 				document.getElementsByClassName("selected")[0].className = "btn";
 				selectedbutton.className += " selected";
 				searchvalue = document.getElementById("search").value;
