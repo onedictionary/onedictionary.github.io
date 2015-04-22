@@ -18,7 +18,9 @@
 	<body>
 		
 		<main>
-			<input id="search" type="text" placeholder="Type a word" autofocus="autofocus" autocorrect="off" autocapitalize="off" onfocus="this.value=''" onkeydown="inputenter(event, this.value)" />
+			<div class="">
+				<input id="search" type="text" placeholder="Type a word" autofocus="autofocus" autocorrect="off" autocapitalize="off" onfocus="this.value=''" onkeydown="inputenter(event, this.value)" />
+			</div>
 
 			<div class="arrow" onclick="togglenav()"></div>
 
@@ -42,6 +44,7 @@
 				if (e.keyCode==13) {
 					document.activeElement.blur();
 					choosewebsite(searchvalue);
+					document.getElementsByClassName("fullscreen")[0].classList.remove("fullscreen");
 				}
 			}
 
@@ -78,9 +81,7 @@
 				choosewebsite(searchvalue);
 			}
 
-			function panic() {
-				document.getElementById('frm').src = "http://www.tureng.com/search/" + document.getElementById("search").value;
-			}
+			function panic() {document.getElementById('frm').src = "http://www.tureng.com/search/" + document.getElementById("search").value;}
 
 			function togglenav() {
 				document.getElementsByClassName("arrow")[0].classList.toggle("on");
