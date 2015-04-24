@@ -18,7 +18,7 @@
 	<body>
 		
 		<main>
-			<div class="">
+			<div class="fullscreen">
 				<input id="search" type="text" placeholder="Enter a word" autofocus="autofocus" autocorrect="off" autocapitalize="off" onfocus="this.value=''" onkeydown="inputenter(event, this.value)" />
 			</div>
 
@@ -54,7 +54,7 @@
 
 				switch(siteid) {
 					case "oxfo":
-						src = "http://www.oxforddictionaries.com/definition/english/" + searchvalue.replace(' ', '-') + "#firstClickFreeAllowed";
+						src = "http://www.oxforddictionaries.com/definition/english/" + searchvalue.replace(' ', '-');
 						break;
 					case "dict":
 						src = "http://dictionary.reference.com/browse/" + searchvalue + "#source-luna";
