@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<title>OneDictionary</title>
-		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -19,6 +20,7 @@
 		
 		<main>
 			<div class="fullscreen">
+				<h1>OneDictionary</h1>
 				<input id="search" type="text" placeholder="Enter a word" autofocus="autofocus" autocorrect="off" autocapitalize="off" onfocus="this.value=''" onkeydown="inputenter(event, this.value)" />
 			</div>
 
@@ -31,7 +33,8 @@
 				<div class="btn" id="thes" onclick="btnclk(this)">Thesaurus.com</div>
 				<div class="btn" id="ozdi" onclick="btnclk(this)">Ozdic.com</div>
 
-				<div class="panic" onclick="panic()"><div class="circle">PANIC</div></div>
+				<div class="panic" onclick="panic()">PANIC</div>
+				<p>Choose a website</p>
 			</nav>
 		</main>
 
@@ -44,6 +47,7 @@
 				if (e.keyCode==13) {
 					document.activeElement.blur();
 					choosewebsite(searchvalue);
+					document.getElementsByTagName("h1")[0].style.display = "none";
 					document.getElementsByClassName("fullscreen")[0].classList.remove("fullscreen");
 				}
 			}
@@ -81,7 +85,7 @@
 				choosewebsite(searchvalue);
 			}
 
-			function panic() {document.getElementById('frm').src = "http://www.tureng.com/search/" + document.getElementById("search").value;}
+			function panic() {document.getElementById('frm').src = "http://tureng.com/search/" + document.getElementById("search").value;}
 
 			function togglenav() {
 				document.getElementsByClassName("arrow")[0].classList.toggle("on");
