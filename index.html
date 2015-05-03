@@ -58,20 +58,15 @@
 
 				switch(siteid) {
 					case "oxfo":
-						src = "http://www.oxforddictionaries.com/definition/english/" + searchvalue.replace(' ', '-');
-						break;
+						src = "http://www.oxforddictionaries.com/definition/english/" + searchvalue.replace(' ', '-');break;
 					case "dict":
-						src = "http://dictionary.reference.com/browse/" + searchvalue + "#source-luna";
-						break;
+						src = "http://dictionary.reference.com/browse/" + searchvalue + "#source-luna";break;
 					case "macm":
-						src = "http://www.macmillandictionary.com/dictionary/british/" + searchvalue.replace(' ', '-') + "#headword";
-						break;
+						src = "http://www.macmillandictionary.com/dictionary/british/" + searchvalue.replace(' ', '-') + "#headword";break;
 					case "thes":
-						src = "http://www.thesaurus.com/browse/" + searchvalue + "#headword-star";
-						break;
+						src = "http://www.thesaurus.com/browse/" + searchvalue + "#headword-star";break;
 					case "ozdi":
-						src = "http://www.ozdic.com/collocation-dictionary/" + searchvalue;
-						break;
+						src = "http://www.ozdic.com/collocation-dictionary/" + searchvalue;break;
 					default:
 				}
 				document.getElementById('frm').src = src;
