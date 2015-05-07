@@ -16,6 +16,10 @@ h1 {
 	margin: 0;
 	font: bold 2.5em Helvetica, Arial, sans-serif;
 }
+h4 {
+	margin: 0;
+	font: 0.9em Helvetica, Arial, sans-serif;
+}
 p {
 	font: 1em Helvetica, Arial, sans-serif;
 	text-align: center;
@@ -42,22 +46,13 @@ p {
 .fullscreen {
 	width: 100%; height: 100%;
 	position: absolute; top: 0; left: 0;
-	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: center;
 	-webkit-justify-content: center;
-	-ms-flex-pack: center;
 	justify-content: center;
-	-webkit-box-align: center;
 	-webkit-align-items: center;
-	-ms-flex-align: center;
 	align-items: center;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
 	-webkit-flex-direction: column;
-	-ms-flex-direction: column;
 	flex-direction: column;
 	background: #eee;
 	z-index: 1;
@@ -69,7 +64,7 @@ input {
 	outline: none;
 	-webkit-appearance: none;
 	background: #f8f8f8;
-	border: solid 1px #ccc;
+	border: 1px solid #ccc;
 	padding: 6px 9px 6px 9px;
 	width: 160px;
 	border-radius: 5px;
@@ -80,6 +75,27 @@ input:focus {
 	background-color: #fff;
 	border-color: #3498db;	
 	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+ul {
+	margin: 0;
+	width: 160px;
+	display: none;
+	z-index: 2;
+	padding: 0;
+	border-radius: .3em;
+	background: hsl(0,0%,100%);
+	border: 1px solid rgba(0,0,0,.3);
+	/*box-shadow: .05em .2em .6em rgba(0,0,0,.3);box-shadow: 0 0 .3em rgba(0,0,0,.3);*/
+	text-shadow: none;
+	list-style: none;
+}
+li {
+	padding: .2em .5em;
+	cursor: pointer;
+}
+.liselected {
+	background: #aaa;
 }
 
 .btn {

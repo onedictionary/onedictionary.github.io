@@ -21,8 +21,11 @@
 		<main>
 			<div class="fullscreen">
 				<h1>OneDictionary</h1>
+				<h4>One website to rule them all</h4>
 				<input id="search" type="text" placeholder="Enter a word" autofocus="autofocus" autocorrect="off" autocapitalize="off" onfocus="this.value=''" onkeydown="inputenter(event, this.value)" />
 			</div>
+
+			<ul id="autolist"></ul>
 
 			<div class="arrow" onclick="togglenav()"></div>
 
@@ -40,15 +43,26 @@
 
 		<div class="scrollable"><iframe id="frm" src=""></iframe></div>
 
-		
-
+		<script src="list.js" async></script>
+		<script src="complete.js" async></script>
 		<script type="text/javascript">
+			var firstTime=true;
+
 			function inputenter(e, searchvalue) {
 				if (e.keyCode==13) {
+					var a=document.getElementsByClassName("liselected")[0];
+					if(a){
+						document.getElementById("search").value = a.innerHTML;
+					}
+					ul.style.display="none";
+					ul.innerHTML="";
+
 					document.activeElement.blur();
 					choosewebsite(searchvalue);
-					document.getElementsByTagName("h1")[0].style.display = "none";
-					document.getElementsByClassName("fullscreen")[0].classList.remove("fullscreen");
+
+					if(firstTime){
+						firstTimeHide();
+					}
 				}
 			}
 
@@ -85,6 +99,16 @@
 			function togglenav() {
 				document.getElementsByTagName("nav")[0].classList.toggle("togglenav");
 				document.getElementsByClassName("arrow")[0].classList.toggle("on");
+			}
+
+			function firstTimeHide(){
+				document.getElementsByTagName("h1")[0].style.display = "none";
+				document.getElementsByTagName("h4")[0].style.display = "none";
+				document.getElementsByClassName("fullscreen")[0].classList.remove("fullscreen");
+				if (typeof place == 'function') { 
+					place();
+				}
+				firstTime=false;
 			}
 
 		</script>
