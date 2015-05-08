@@ -111,7 +111,8 @@ document.addEventListener("keydown", function(e){
 });
 
 searchelement.addEventListener("focus",function(){ul.style.display="none";ul.innerHTML="";});
-searchelement.addEventListener("input", function(){createlist(document.getElementById("search").value);});
+searchelement.addEventListener("input", function(){if(canautocomplete)createlist(document.getElementById("search").value);});
+document.getElementsByTagName("main")[0].addEventListener("click",function(){ul.style.display="none";});
 
 function index(element){
     var sib=element.parentNode.childNodes;

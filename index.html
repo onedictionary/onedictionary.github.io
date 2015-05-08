@@ -28,6 +28,7 @@
 			<ul id="autolist"></ul>
 
 			<div class="arrow" onclick="togglenav()"></div>
+			<div class="menuicon" onclick="togglemenu()"></div>
 
 			<nav>
 				<div class="btn selected" id="oxfo" onclick="btnclk(this)">Oxford Dictionaries</div>
@@ -39,9 +40,35 @@
 				<div class="panic" onclick="panic()">PANIC</div>
 				<p>Choose a website</p>
 			</nav>
+
+			<nav>
+				<div class="menubtn" onclick="toggleoptions()">Options</div>
+			</nav>
+
 		</main>
 
 		<div class="scrollable"><iframe id="frm" src=""></iframe></div>
+
+		<section onclick="closeoptions(event)">
+			<div class="roundbox" onclick="event.stopPropagation()">
+				<div>Default website:
+				<select onchange="savedefaultsite(this.value)">
+					<option value="oxfo">Oxford Dictionaries</option>
+					<option value="dict">Dictionary.com</option>
+					<option value="macm">Macmillan Dictionary</option>
+					<option value="thes">Thesaurus.com</option>
+					<option value="ozdi">Ozdic.com</option>
+				</select></div>
+				
+				<div>Autocomplete:
+				<select onchange="saveautocomplete(this.value)">
+					<option value="on">On</option>
+					<option value="off">Off</option>
+				</select>
+				</div>
+
+			</div>
+		</section>
 
 		<script src="list.js" async></script>
 		<script src="complete.js" async></script>
@@ -98,7 +125,31 @@
 
 			function togglenav() {
 				document.getElementsByTagName("nav")[0].classList.toggle("togglenav");
-				document.getElementsByClassName("arrow")[0].classList.toggle("on");
+				document.getElementsByClassName("arrow")[0].classList.toggle("arrowon");
+				if(document.getElementsByTagName("nav")[1].classList.contains("togglenav")){
+					document.getElementsByTagName("nav")[1].classList.remove("togglenav");
+					document.getElementsByClassName("menuicon")[0].classList.remove("menuiconon");
+				}
+			}
+
+			function togglemenu() {
+				document.getElementsByTagName("nav")[1].classList.toggle("togglenav");
+				document.getElementsByClassName("menuicon")[0].classList.toggle("menuiconon");
+				if(document.getElementsByTagName("nav")[0].classList.contains("togglenav")) {
+					document.getElementsByTagName("nav")[0].classList.remove("togglenav");
+					document.getElementsByClassName("arrow")[0].classList.remove("arrowon");
+				}
+			}
+
+			function toggleoptions() {
+				document.getElementsByTagName("section")[0].classList.toggle("options");
+				if(document.getElementsByTagName("nav")[1].classList.contains("togglenav")){
+					togglemenu();
+				}
+			}
+
+			function closeoptions() {
+				document.getElementsByTagName("section")[0].classList.remove("options");
 			}
 
 			function firstTimeHide(){
@@ -109,6 +160,37 @@
 					place();
 				}
 				firstTime=false;
+			}
+
+			var defaultsite = localStorage.getItem('defaultsite');
+			if (defaultsite) {
+				document.getElementById(defaultsite).classList.add("selected");
+				document.getElementsByTagName("select")[0].value = defaultsite;
+				document.getElementsByClassName("selected")[0].className = "btn";
+			}
+
+			function savedefaultsite(aaaa) {
+				localStorage.setItem("defaultsite", aaaa);
+			}
+
+			var canautocomplete=true;
+			var autocomplete = localStorage.getItem("autocomplete");
+			if(autocomplete) {
+				if(autocomplete==="on"){
+					canautocomplete=true;
+				} else if(autocomplete==="off"){
+					canautocomplete=false;
+				}
+				document.getElementsByTagName("select")[1].value = autocomplete;
+			}
+
+			function saveautocomplete(aaaa) {
+				localStorage.setItem("autocomplete", aaaa);
+				if(aaaa==="on"){
+					canautocomplete=true;
+				} else if(aaaa==="off"){
+					canautocomplete=false;
+				}
 			}
 
 		</script>
