@@ -25,6 +25,18 @@ nav p {
 	text-align: center;
 	color: #aaa;
 }
+section p {
+	margin-top: 0px;
+	font: 0.9em Helvetica, Arial, sans-serif;
+	color: #666;
+	max-width: 400px;
+}
+
+#optionclose {
+	margin:10px;
+	text-align:center;
+	cursor:pointer;
+}
 
 .scrollable {
 	margin: 0;

@@ -3,6 +3,9 @@
 	<head>
 		<meta charset="utf-8">
 		<title>OneDictionary</title>
+		<meta name="description" content="Reach English dictionaries, thesaurus and collocation dictionary from one website">
+
+
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
@@ -52,21 +55,26 @@
 		<section onclick="closeoptions(event)">
 			<div class="roundbox" onclick="event.stopPropagation()">
 				<div>Default website:
-				<select onchange="savedefaultsite(this.value)">
-					<option value="oxfo">Oxford Dictionaries</option>
-					<option value="dict">Dictionary.com</option>
-					<option value="macm">Macmillan Dictionary</option>
-					<option value="thes">Thesaurus.com</option>
-					<option value="ozdi">Ozdic.com</option>
-				</select></div>
-				
-				<div>Autocomplete:
-				<select onchange="saveautocomplete(this.value)">
-					<option value="on">On</option>
-					<option value="off">Off</option>
-				</select>
+					<select onchange="savedefaultsite(this.value)">
+						<option value="oxfo">Oxford Dictionaries</option>
+						<option value="dict">Dictionary.com</option>
+						<option value="macm">Macmillan Dictionary</option>
+						<option value="thes">Thesaurus.com</option>
+						<option value="ozdi">Ozdic.com</option>
+					</select>
 				</div>
+				<p>This website will be selected automatically on your next visit.</p>
 
+				<div>Autocomplete:
+					<select onchange="saveautocomplete(this.value)">
+						<option value="on">On</option>
+						<option value="off">Off</option>
+					</select>
+				</div>
+				<p>Autocomplete feature is just for suggesting words. It uses an English word list, which may contain words that are not defined in dictionary websites or lack the existing words. So feel free to to ignore this feature and type words even if there are not any word suggestion.</p>
+				<p>You may want to turn off this feature if you experience lag while typing.</p>
+				
+				<p id="optionclose" onclick="closeoptions(event)">Click the dark area or here to close</p>
 			</div>
 		</section>
 
@@ -176,9 +184,7 @@
 			var canautocomplete=true;
 			var autocomplete = localStorage.getItem("autocomplete");
 			if(autocomplete) {
-				if(autocomplete==="on"){
-					canautocomplete=true;
-				} else if(autocomplete==="off"){
+				if(autocomplete==="off"){
 					canautocomplete=false;
 				}
 				document.getElementsByTagName("select")[1].value = autocomplete;
