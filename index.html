@@ -1,212 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>OneDictionary</title>
-		<meta name="description" content="Reach English dictionaries, thesaurus and collocation dictionary from one website">
+<head>
+	<meta charset="utf-8">
+	<title>OneDictionary</title>
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<meta name="description" content="Reach English dictionaries, thesaurus and collocation dictionary from one website">
 
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="style.css">
 
-		<link rel="stylesheet" href="style.css">
+	<script>
+		if((navigator.userAgent.match(/iPad|iPhone/i))){document.styleSheets[0].insertRule(".scrollable{overflow:auto; overflow-x: hidden; -webkit-overflow-scrolling:touch;}", 2);}
+	</script>
 
-		<script>
-			if((navigator.userAgent.match(/iPad|iPhone/i))){document.styleSheets[0].insertRule(".scrollable{overflow:auto; overflow-x: hidden; -webkit-overflow-scrolling:touch;}", 2);}
-		</script>
+</head>
 
-	</head>
+<body>
+	
+	<main>
+		<div class="fullscreen">
+			<h1>OneDictionary</h1>
+			<h4>One website to rule them all</h4>
+			<input id="search" type="text" placeholder="Enter a word" autofocus="autofocus" autocorrect="off" autocapitalize="off" onfocus="this.value=''" onkeydown="inputenter(event, this.value)" />
+		</div>
 
-	<body>
-		
-		<main>
-			<div class="fullscreen">
-				<h1>OneDictionary</h1>
-				<h4>One website to rule them all</h4>
-				<input id="search" type="text" placeholder="Enter a word" autofocus="autofocus" autocorrect="off" autocapitalize="off" onfocus="this.value=''" onkeydown="inputenter(event, this.value)" />
+		<ul id="autolist"></ul>
+
+		<div class="arrow" onclick="togglenav()"></div>
+		<div class="menuicon" onclick="togglemenu()"></div>
+
+		<nav>
+			<div class="btn selected" id="oxfo" onclick="btnclk(this)">Oxford Dictionaries</div>
+			<div class="btn" id="dict" onclick="btnclk(this)">Dictionary.com</div>
+			<div class="btn" id="macm" onclick="btnclk(this)">Macmillan Dictionary</div>
+			<div class="btn" id="thes" onclick="btnclk(this)">Thesaurus.com</div>
+			<div class="btn" id="ozdi" onclick="btnclk(this)">Ozdic.com</div>
+
+			<div class="panic" onclick="panic()">PANIC</div>
+			<p>Choose a website</p>
+		</nav>
+
+		<nav>
+			<div class="menubtn" onclick="toggleoptions()">Options</div>
+		</nav>
+
+	</main>
+
+	<div class="scrollable"><iframe id="frm" src=""></iframe></div>
+
+	<section onclick="closeoptions(event)">
+		<div class="roundbox" onclick="event.stopPropagation()">
+			<div>Default website:
+				<select onchange="savedefaultsite(this.value)">
+					<option value="oxfo">Oxford Dictionaries</option>
+					<option value="dict">Dictionary.com</option>
+					<option value="macm">Macmillan Dictionary</option>
+					<option value="thes">Thesaurus.com</option>
+					<option value="ozdi">Ozdic.com</option>
+				</select>
 			</div>
+			<p>This website will be selected automatically on your next visit.</p>
 
-			<ul id="autolist"></ul>
-
-			<div class="arrow" onclick="togglenav()"></div>
-			<div class="menuicon" onclick="togglemenu()"></div>
-
-			<nav>
-				<div class="btn selected" id="oxfo" onclick="btnclk(this)">Oxford Dictionaries</div>
-				<div class="btn" id="dict" onclick="btnclk(this)">Dictionary.com</div>
-				<div class="btn" id="macm" onclick="btnclk(this)">Macmillan Dictionary</div>
-				<div class="btn" id="thes" onclick="btnclk(this)">Thesaurus.com</div>
-				<div class="btn" id="ozdi" onclick="btnclk(this)">Ozdic.com</div>
-
-				<div class="panic" onclick="panic()">PANIC</div>
-				<p>Choose a website</p>
-			</nav>
-
-			<nav>
-				<div class="menubtn" onclick="toggleoptions()">Options</div>
-			</nav>
-
-		</main>
-
-		<div class="scrollable"><iframe id="frm" src=""></iframe></div>
-
-		<section onclick="closeoptions(event)">
-			<div class="roundbox" onclick="event.stopPropagation()">
-				<div>Default website:
-					<select onchange="savedefaultsite(this.value)">
-						<option value="oxfo">Oxford Dictionaries</option>
-						<option value="dict">Dictionary.com</option>
-						<option value="macm">Macmillan Dictionary</option>
-						<option value="thes">Thesaurus.com</option>
-						<option value="ozdi">Ozdic.com</option>
-					</select>
-				</div>
-				<p>This website will be selected automatically on your next visit.</p>
-
-				<div>Autocomplete:
-					<select onchange="saveautocomplete(this.value)">
-						<option value="on">On</option>
-						<option value="off">Off</option>
-					</select>
-				</div>
-				<p>You may want to turn off this feature if you experience lag while typing.</p>
-				<p>Autocomplete feature is just for suggesting words. It uses an English word list, which may contain rare words that are not defined in some dictionary websites or lack the existing words,such as plurals. So feel free to to ignore this feature and type words even if there are not any word suggestion.</p>
-				
-				<p id="optionclose" onclick="closeoptions(event)">Click the dark area or here to close</p>
+			<div>Autocomplete:
+				<select onchange="saveautocomplete(this.value)">
+					<option value="on">On</option>
+					<option value="off">Off</option>
+				</select>
 			</div>
-		</section>
+			<p>You may want to turn off this feature if you experience lag while typing.</p>
+			<p>Autocomplete feature is just for suggesting words. It uses an English word list, which may contain rare words that are not defined in some dictionary websites or lack the existing words,such as plurals. So feel free to to ignore this feature and type words even if there are not any word suggestion.</p>
+			
+			<p id="option-close" onclick="closeoptions(event)">Click the dark area or here to close</p>
+		</div>
+	</section>
 
-		<script src="list.js" async></script>
-		<script src="complete.js"></script>
-		<script type="text/javascript">
-			var firstTime=true;
+	<script src="list.js" async></script>
+	<script src="complete.js"></script>
+	<script type="text/javascript">
+		var firstTime=true;
 
-			function inputenter(e, searchvalue) {
-				if (e.keyCode==13) {
-					var a=document.getElementsByClassName("liselected")[0];
-					if(a){
-						document.getElementById("search").value = a.innerHTML;
-					}
-					ul.style.display="none";
-					ul.innerHTML="";
-
-					document.activeElement.blur();
-					choosewebsite(searchvalue);
-
-					if(firstTime){
-						firstTimeHide();
-					}
+		function inputenter(e, searchvalue) {
+			if (e.keyCode==13) {
+				var a=document.getElementsByClassName("liselected")[0];
+				if(a){
+					document.getElementById("search").value = a.innerHTML;
 				}
-			}
+				ul.style.display="none";
+				ul.innerHTML="";
 
-			function choosewebsite(searchvalue) {
-				var src;
-				var siteid = document.getElementsByClassName("selected")[0].id;
-
-				switch(siteid) {
-					case "oxfo":
-						src = "http://www.oxforddictionaries.com/definition/english/" + searchvalue.replace(' ', '-');break;
-					case "dict":
-						src = "http://dictionary.reference.com/browse/" + searchvalue + "#source-luna";break;
-					case "macm":
-						src = "http://www.macmillandictionary.com/dictionary/british/" + searchvalue.replace(' ', '-') + "#headword";break;
-					case "thes":
-						src = "http://www.thesaurus.com/browse/" + searchvalue + "#headword-star";break;
-					case "ozdi":
-						src = "http://www.ozdic.com/collocation-dictionary/" + searchvalue;break;
-					default:
-				}
-				document.getElementById('frm').src = src;
-			}
-
-			function btnclk(selectedbutton) {
-				if(document.getElementsByTagName("nav")[0].classList.contains("togglenav")){
-					togglenav();
-				}
-				document.getElementsByClassName("selected")[0].className = "btn";
-				selectedbutton.className += " selected";
-				searchvalue = document.getElementById("search").value;
+				document.activeElement.blur();
 				choosewebsite(searchvalue);
-			}
 
-			function panic() {document.getElementById('frm').src = "http://tureng.com/search/" + document.getElementById("search").value;
+				if(firstTime){
+					firstTimeHide();
+				}
+			}
+		}
+
+		function choosewebsite(searchvalue) {
+			var src;
+			var siteid = document.getElementsByClassName("selected")[0].id;
+
+			switch(siteid) {
+				case "oxfo":
+					src = "http://www.oxforddictionaries.com/definition/english/" + searchvalue.replace(' ', '-');break;
+				case "dict":
+					src = "http://dictionary.reference.com/browse/" + searchvalue + "#source-luna";break;
+				case "macm":
+					src = "http://www.macmillandictionary.com/dictionary/british/" + searchvalue.replace(' ', '-') + "#headword";break;
+				case "thes":
+					src = "http://www.thesaurus.com/browse/" + searchvalue + "#headword-star";break;
+				case "ozdi":
+					src = "http://www.ozdic.com/collocation-dictionary/" + searchvalue;break;
+				default:
+			}
+			document.getElementById('frm').src = src;
+		}
+
+		function btnclk(selectedbutton) {
 			if(document.getElementsByTagName("nav")[0].classList.contains("togglenav")){
-					togglenav();
-				}
+				togglenav();
 			}
+			document.getElementsByClassName("selected")[0].className = "btn";
+			selectedbutton.className += " selected";
+			searchvalue = document.getElementById("search").value;
+			choosewebsite(searchvalue);
+		}
 
-			function togglenav() {
-				document.getElementsByTagName("nav")[0].classList.toggle("togglenav");
-				document.getElementsByClassName("arrow")[0].classList.toggle("arrowon");
-				if(document.getElementsByTagName("nav")[1].classList.contains("togglenav")){
-					document.getElementsByTagName("nav")[1].classList.remove("togglenav");
-					document.getElementsByClassName("menuicon")[0].classList.remove("menuiconon");
-				}
+		function panic() {document.getElementById('frm').src = "http://tureng.com/search/" + document.getElementById("search").value;
+		if(document.getElementsByTagName("nav")[0].classList.contains("togglenav")){
+				togglenav();
 			}
+		}
 
-			function togglemenu() {
-				document.getElementsByTagName("nav")[1].classList.toggle("togglenav");
-				document.getElementsByClassName("menuicon")[0].classList.toggle("menuiconon");
-				if(document.getElementsByTagName("nav")[0].classList.contains("togglenav")) {
-					document.getElementsByTagName("nav")[0].classList.remove("togglenav");
-					document.getElementsByClassName("arrow")[0].classList.remove("arrowon");
-				}
+		function togglenav() {
+			document.getElementsByTagName("nav")[0].classList.toggle("togglenav");
+			document.getElementsByClassName("arrow")[0].classList.toggle("arrowon");
+			if(document.getElementsByTagName("nav")[1].classList.contains("togglenav")){
+				document.getElementsByTagName("nav")[1].classList.remove("togglenav");
+				document.getElementsByClassName("menuicon")[0].classList.remove("menuiconon");
 			}
+		}
 
-			function toggleoptions() {
-				document.getElementsByTagName("section")[0].classList.toggle("options");
-				if(document.getElementsByTagName("nav")[1].classList.contains("togglenav")){
-					togglemenu();
-				}
+		function togglemenu() {
+			document.getElementsByTagName("nav")[1].classList.toggle("togglenav");
+			document.getElementsByClassName("menuicon")[0].classList.toggle("menuiconon");
+			if(document.getElementsByTagName("nav")[0].classList.contains("togglenav")) {
+				document.getElementsByTagName("nav")[0].classList.remove("togglenav");
+				document.getElementsByClassName("arrow")[0].classList.remove("arrowon");
 			}
+		}
 
-			function closeoptions() {
-				document.getElementsByTagName("section")[0].classList.remove("options");
+		function toggleoptions() {
+			document.getElementsByTagName("section")[0].classList.toggle("options");
+			if(document.getElementsByTagName("nav")[1].classList.contains("togglenav")){
+				togglemenu();
 			}
+		}
 
-			function firstTimeHide(){
-				document.getElementsByTagName("h1")[0].style.display = "none";
-				document.getElementsByTagName("h4")[0].style.display = "none";
-				document.getElementsByClassName("fullscreen")[0].classList.remove("fullscreen");
-				if (typeof place == 'function') { 
-					place();
-				}
-				firstTime=false;
+		function closeoptions() {
+			document.getElementsByTagName("section")[0].classList.remove("options");
+		}
+
+		function firstTimeHide(){
+			document.getElementsByTagName("h1")[0].style.display = "none";
+			document.getElementsByTagName("h4")[0].style.display = "none";
+			document.getElementsByClassName("fullscreen")[0].classList.remove("fullscreen");
+			if (typeof place == 'function') { 
+				place();
 			}
+			firstTime=false;
+		}
 
-			var defaultsite = localStorage.getItem('defaultsite');
-			if (defaultsite) {
-				document.getElementById(defaultsite).classList.add("selected");
-				document.getElementsByTagName("select")[0].value = defaultsite;
-				document.getElementsByClassName("selected")[0].className = "btn";
+		var defaultsite = localStorage.getItem('defaultsite');
+		if (defaultsite) {
+			document.getElementById(defaultsite).classList.add("selected");
+			document.getElementsByTagName("select")[0].value = defaultsite;
+			document.getElementsByClassName("selected")[0].className = "btn";
+		}
+
+		function savedefaultsite(aaaa) {
+			localStorage.setItem("defaultsite", aaaa);
+		}
+
+		var canautocomplete=true;
+		var autocomplete = localStorage.getItem("autocomplete");
+		if(autocomplete) {
+			if(autocomplete==="off"){
+				canautocomplete=false;
 			}
+			document.getElementsByTagName("select")[1].value = autocomplete;
+		}
 
-			function savedefaultsite(aaaa) {
-				localStorage.setItem("defaultsite", aaaa);
+		function saveautocomplete(aaaa) {
+			localStorage.setItem("autocomplete", aaaa);
+			if(aaaa==="on"){
+				canautocomplete=true;
+			} else if(aaaa==="off"){
+				canautocomplete=false;
 			}
+		}
 
-			var canautocomplete=true;
-			var autocomplete = localStorage.getItem("autocomplete");
-			if(autocomplete) {
-				if(autocomplete==="off"){
-					canautocomplete=false;
-				}
-				document.getElementsByTagName("select")[1].value = autocomplete;
-			}
+	</script>
 
-			function saveautocomplete(aaaa) {
-				localStorage.setItem("autocomplete", aaaa);
-				if(aaaa==="on"){
-					canautocomplete=true;
-				} else if(aaaa==="off"){
-					canautocomplete=false;
-				}
-			}
-
-		</script>
-
-	</body>
+</body>
 
 </html>
