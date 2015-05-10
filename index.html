@@ -71,15 +71,15 @@
 						<option value="off">Off</option>
 					</select>
 				</div>
-				<p>Autocomplete feature is just for suggesting words. It uses an English word list, which may contain words that are not defined in dictionary websites or lack the existing words. So feel free to to ignore this feature and type words even if there are not any word suggestion.</p>
 				<p>You may want to turn off this feature if you experience lag while typing.</p>
+				<p>Autocomplete feature is just for suggesting words. It uses an English word list, which may contain rare words that are not defined in some dictionary websites or lack the existing words,such as plurals. So feel free to to ignore this feature and type words even if there are not any word suggestion.</p>
 				
 				<p id="optionclose" onclick="closeoptions(event)">Click the dark area or here to close</p>
 			</div>
 		</section>
 
 		<script src="list.js" async></script>
-		<script src="complete.js" async></script>
+		<script src="complete.js"></script>
 		<script type="text/javascript">
 			var firstTime=true;
 
@@ -122,14 +122,20 @@
 			}
 
 			function btnclk(selectedbutton) {
-				if(document.getElementsByTagName("nav")[0].classList.contains("togglenav")){togglenav();}
+				if(document.getElementsByTagName("nav")[0].classList.contains("togglenav")){
+					togglenav();
+				}
 				document.getElementsByClassName("selected")[0].className = "btn";
 				selectedbutton.className += " selected";
 				searchvalue = document.getElementById("search").value;
 				choosewebsite(searchvalue);
 			}
 
-			function panic() {document.getElementById('frm').src = "http://tureng.com/search/" + document.getElementById("search").value;togglenav();}
+			function panic() {document.getElementById('frm').src = "http://tureng.com/search/" + document.getElementById("search").value;
+			if(document.getElementsByTagName("nav")[0].classList.contains("togglenav")){
+					togglenav();
+				}
+			}
 
 			function togglenav() {
 				document.getElementsByTagName("nav")[0].classList.toggle("togglenav");
