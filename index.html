@@ -80,7 +80,6 @@
 		</div>
 	</section>
 
-	<script src="list.js" defer></script>
 	<script src="complete.js"></script>
 	<script type="text/javascript">
 		var firstTime=true;
@@ -209,6 +208,18 @@
 			}
 		}
 
+		//defer list.js
+		function downloadJSAtOnload() {
+			var element = document.createElement("script");
+			element.src = "list.js";
+			document.body.appendChild(element);
+		}
+		if (window.addEventListener)
+			window.addEventListener("load", downloadJSAtOnload, false);
+		else if (window.attachEvent)
+			window.attachEvent("onload", downloadJSAtOnload);
+		else window.onload = downloadJSAtOnload;
+		//
 	</script>
 
 </body>
