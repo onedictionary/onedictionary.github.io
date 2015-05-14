@@ -39,6 +39,7 @@
 			<div class="btn" id="macm" onclick="btnclk(this)">Macmillan Dictionary</div>
 			<div class="btn" id="thes" onclick="btnclk(this)">Thesaurus.com</div>
 			<div class="btn" id="ozdi" onclick="btnclk(this)">Ozdic.com</div>
+			<div class="btn" id="thef" onclick="btnclk(this)">The Free Dictionary</div>
 
 			<div class="panic" onclick="panic()">PANIC</div>
 			<p>Choose a website</p>
@@ -61,6 +62,7 @@
 					<option value="macm">Macmillan Dictionary</option>
 					<option value="thes">Thesaurus.com</option>
 					<option value="ozdi">Ozdic.com</option>
+					<option value="thef">The Free Dictionary</option>
 				</select>
 			</div>
 			<p>This website will be selected automatically on your next visit.</p>
@@ -74,11 +76,11 @@
 			<p>You may want to turn off this feature if you experience lag while typing.</p>
 			<p>Autocomplete feature is just for suggesting words. It uses an English word list, which may contain rare words that are not defined in some dictionary websites or lack the existing words,such as plurals. So feel free to to ignore this feature and type words even if there are not any word suggestion.</p>
 			
-			<p id="option-close" onclick="closeoptions(event)">Click the dark area or here to close</p>
+			<p id="option-close" onclick="closeoptions(event)">&#10060; Click the dark area or here to close</p>
 		</div>
 	</section>
 
-	<script src="list.js" async></script>
+	<script src="list.js" defer></script>
 	<script src="complete.js"></script>
 	<script type="text/javascript">
 		var firstTime=true;
@@ -109,13 +111,15 @@
 				case "oxfo":
 					src = "http://www.oxforddictionaries.com/definition/english/" + searchvalue.replace(' ', '-');break;
 				case "dict":
-					src = "http://dictionary.reference.com/browse/" + searchvalue + "#source-luna";break;
+					src = "http://dictionary.reference.com/browse/" + searchvalue;break;
 				case "macm":
-					src = "http://www.macmillandictionary.com/dictionary/british/" + searchvalue.replace(' ', '-') + "#headword";break;
+					src = "http://www.macmillandictionary.com/dictionary/british/" + searchvalue.replace(' ', '-');break;
 				case "thes":
-					src = "http://www.thesaurus.com/browse/" + searchvalue + "#headword-star";break;
+					src = "http://www.thesaurus.com/browse/" + searchvalue;break;
 				case "ozdi":
 					src = "http://www.ozdic.com/collocation-dictionary/" + searchvalue;break;
+				case "thef":
+					src = "http://www.thefreedictionary.com/" + searchvalue;break;
 				default:
 			}
 			document.getElementById('frm').src = src;
