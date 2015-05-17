@@ -21,11 +21,6 @@ h4 {
 	margin: 0;
 	font: 0.9em Helvetica, Arial, sans-serif;
 }
-nav p {
-	font: 0.9em Helvetica, Arial, sans-serif;
-	text-align: center;
-	color: #a0a0a0;
-}
 section p {
 	margin-top: 0px;
 	font: 0.9em Helvetica, Arial, sans-serif;
@@ -142,14 +137,25 @@ li {
 	color: #ffffff;
 }
 
+.line-separator{
+	margin: 10px 0 10px 0;
+	height:1px;
+	/*background:#aaa;*/
+	border-bottom:1px solid #cfcfcf;
+}
+
+
 .menubtn {
-	min-height: 40px;
+	height: 40px;
 	font: 1em/40px Helvetica, Arial, sans-serif;
 	color: #404040;
-	/*color: #ffffff;
-	background: hsl(209, 68%, 63%);*/
 	text-align: center;
 	cursor: pointer;
+	transition: background .25s ease-in-out;
+}
+
+.menubtn:hover {
+	background: rgba(0,0,0,.1);
 }
 
 .arrow {

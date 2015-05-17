@@ -42,8 +42,9 @@
 			<div class="btn" id="thef" onclick="btnclk(this)">The Free Dictionary</div>
 
 			<div class="panic" onclick="panic()">PANIC</div>
-			<p>Choose a website</p>
 		</nav>
+
+		<div class="line-separator"></div>
 
 		<nav>
 			<div class="menubtn" onclick="toggleoptions()">Options</div>
@@ -80,7 +81,7 @@
 		</div>
 	</section>
 
-	<script src="complete.js"></script>
+
 	<script type="text/javascript">
 		var firstTime=true;
 
@@ -125,13 +126,14 @@
 		}
 
 		function btnclk(selectedbutton) {
+			document.getElementsByClassName("selected")[0].className = "btn";
+			selectedbutton.className += " selected";
+			var searchvalue = document.getElementById("search").value;
+			if(!searchvalue.length){alert("You need to type a word in the input box");return;}
+			choosewebsite(searchvalue);
 			if(document.getElementsByTagName("nav")[0].classList.contains("togglenav")){
 				togglenav();
 			}
-			document.getElementsByClassName("selected")[0].className = "btn";
-			selectedbutton.className += " selected";
-			searchvalue = document.getElementById("search").value;
-			choosewebsite(searchvalue);
 		}
 
 		function panic() {document.getElementById('frm').src = "http://tureng.com/search/" + document.getElementById("search").value;
@@ -208,7 +210,7 @@
 			}
 		}
 
-		//defer list.js
+		/*defer list.js
 		function downloadJSAtOnload() {
 			var element = document.createElement("script");
 			element.src = "list.min.js";
@@ -216,11 +218,11 @@
 		}
 		if (window.addEventListener)
 			window.addEventListener("load", downloadJSAtOnload, false);
-		else if (window.attachEvent)
-			window.attachEvent("onload", downloadJSAtOnload);
-		else window.onload = downloadJSAtOnload;
-		//
+		*/
 	</script>
+
+	<script src="complete.js"></script>
+	<script src="list.min.js" defer></script>
 
 </body>
 
