@@ -112,7 +112,7 @@ li {
 	color: #404040;
 	text-align: center;
 	cursor: pointer;
-	transition: background .25s ease-in-out;
+	transition: background .20s ease-in-out;
 }
 
 .btn:hover {
@@ -130,7 +130,7 @@ li {
 	color: #404040;
 	text-align: center;
 	cursor: pointer;
-	transition: background .25s ease-in-out;
+	transition: background .20s ease-in-out;
 }
 .panic:hover {
 	background: #cc0000;
@@ -151,7 +151,7 @@ li {
 	color: #404040;
 	text-align: center;
 	cursor: pointer;
-	transition: background .25s ease-in-out;
+	transition: background .20s ease-in-out;
 }
 
 .menubtn:hover {
@@ -254,6 +254,10 @@ nav {
 	position: absolute;
 	top: 6px;
 	left: 6px;
+}
+
+.line-separator {
+	display: none;
 }
 
 }
