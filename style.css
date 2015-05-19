@@ -25,7 +25,6 @@ section p {
 	margin-top: 0px;
 	font: 0.9em Helvetica, Arial, sans-serif;
 	color: #555;
-	max-width: 400px;
 }
 
 #option-close {
@@ -198,12 +197,7 @@ section {
 }
 
 .options {
-	display: -webkit-flex;
-	display: flex;
-	-webkit-justify-content: center;
-	justify-content: center;
-	-webkit-align-items: center;
-	align-items: center;
+	display: block;
 	width: 100%; height: 100%;
 	position: absolute; top: 0; left: 0;
 	background: rgba(0,0,0,.9);
@@ -211,7 +205,11 @@ section {
 }
 
 .roundbox {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 	margin: 0 auto;
+	max-width: 400px;
 	background: #fff;
 	border-radius: 16px;
 	padding: 10px;
