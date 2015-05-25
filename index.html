@@ -25,7 +25,7 @@
 		<div class="fullscreen">
 			<h1>OneDictionary</h1>
 			<h4>One website to rule them all</h4>
-			<input id="search" type="text" placeholder="Enter a word" autofocus="autofocus" autocorrect="off" autocapitalize="off" onfocus="this.value=''" onkeydown="inputenter(event, this.value)" />
+			<input id="search" type="text" placeholder="Enter a word" autofocus="autofocus" autocorrect="off" autocapitalize="off" onfocus="this.value=''" onkeydown="inputenter(event)" />
 		</div>
 
 		<ul id="autolist"></ul>
@@ -85,7 +85,7 @@
 	<script type="text/javascript">
 		var firstTime=true;
 
-		function inputenter(e, searchvalue) {
+		function inputenter(e) {
 			if (e.keyCode==13) {
 				var a=document.getElementsByClassName("liselected")[0];
 				if(a){
@@ -95,7 +95,7 @@
 				ul.innerHTML="";
 
 				document.activeElement.blur();
-				choosewebsite(searchvalue);
+				choosewebsite(document.getElementById("search").value);
 
 				if(firstTime){
 					firstTimeHide();
