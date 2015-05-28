@@ -17,8 +17,13 @@ h1 {
 	margin: 0;
 	font: bold 2.5em Helvetica, Arial, sans-serif;
 }
-h4 {
+h1 p {
 	margin: 0;
+	display: inline;
+	font: 0.5em Helvetica, Arial, sans-serif;
+}
+h4 {
+	margin: 2px;
 	font: 0.9em Helvetica, Arial, sans-serif;
 }
 section p {
