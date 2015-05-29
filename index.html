@@ -100,9 +100,6 @@
 				if(firstTime){
 					firstTimeHide();
 				}
-				if (typeof place == 'function') { 
-					place();
-				}
 			}
 		}
 
@@ -126,6 +123,9 @@
 				default:
 			}
 			document.getElementById('frm').src = src;
+			if (typeof place == 'function') { 
+				place();
+			}
 		}
 
 		function btnclk(selectedbutton) {
@@ -215,13 +215,14 @@
 			var element = document.createElement("script");
 			element.src = "list.min.js";
 			document.body.appendChild(element);
+			var element2 = document.createElement("script");
+			element2.src = "complete.js";
+			document.body.appendChild(element2);
 		}
 		if (window.addEventListener)
 			window.addEventListener("load", downloadJSAtOnload, false);
 
 	</script>
-
-	<script src="complete.js"></script>
 
 </body>
 
