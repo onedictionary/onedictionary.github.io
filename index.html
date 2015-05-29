@@ -178,6 +178,9 @@
 			document.getElementsByTagName("h1")[0].style.display = "none";
 			document.getElementsByTagName("h4")[0].style.display = "none";
 			document.getElementsByClassName("fullscreen")[0].classList.remove("fullscreen");
+			if (typeof place == 'function') { 
+				place();
+			}
 			firstTime=false;
 		}
 
