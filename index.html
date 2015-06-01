@@ -220,22 +220,28 @@
 			localStorage.setItem("autocomplete", aaaa);
 			if(aaaa==="on"){
 				canautocomplete=true;
+				if (window.addEventListener)
+					window.addEventListener("load", downloadJSAtOnload, false);
 			} else if(aaaa==="off"){
 				canautocomplete=false;
 			}
 		}
 
-		//defer list.js
-		function downloadJSAtOnload() {
-			var element = document.createElement("script");
-			element.src = "list.min.js";
-			document.body.appendChild(element);
-			var element2 = document.createElement("script");
-			element2.src = "complete.js";
-			document.body.appendChild(element2);
+
+		if(canautocomplete) {
+			//defer list.js
+			function downloadJSAtOnload() {
+				var element = document.createElement("script");
+				element.src = "list.min.js";
+				document.body.appendChild(element);
+				var element2 = document.createElement("script");
+				element2.src = "complete.js";
+				document.body.appendChild(element2);
+			}
+			if (window.addEventListener)
+				window.addEventListener("load", downloadJSAtOnload, false);
 		}
-		if (window.addEventListener)
-			window.addEventListener("load", downloadJSAtOnload, false);
+		
 
 	</script>
 

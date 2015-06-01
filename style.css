@@ -15,20 +15,20 @@ main {
 
 h1 {
 	margin: 0;
-	font: bold 2.5em Helvetica, Arial, sans-serif;
+	font: bold 2.5em "Helvetica Neue", "Segoe UI", Arial, sans-serif;
 }
 h1 p {
 	margin: 0;
 	display: inline;
-	font: 0.5em Helvetica, Arial, sans-serif;
+	font: 0.5em "Helvetica Neue", "Segoe UI", Arial, sans-serif;
 }
 h4 {
 	margin: 2px;
-	font: 0.9em Helvetica, Arial, sans-serif;
+	font: 0.9em "Helvetica Neue", "Segoe UI", Arial, sans-serif;
 }
 section p {
 	margin-top: 0px;
-	font: 0.9em Helvetica, Arial, sans-serif;
+	font: 0.9em "Helvetica Neue", "Segoe UI", Arial, sans-serif;
 	color: #555;
 }
 
@@ -102,7 +102,7 @@ ul {
 	list-style: none;
 }
 li {
-	font: 0.8em Helvetica, Arial, sans-serif;
+	font: 0.8em "Helvetica Neue", "Segoe UI", Arial, sans-serif;
 	padding: .2em .5em;
 	cursor: pointer;
 }
@@ -167,7 +167,7 @@ li {
 	width: 30px;
 	border-radius: 1px;
 	background: hsl(209, 68%, 63%);
-	font: 0.9em/30px Helvetica, Arial, sans-serif;
+	font: 0.9em/30px sans-serif;
 	color: #fff;
 	display: none;
 	text-align:center;
@@ -181,7 +181,7 @@ li {
 	width: 30px;
 	border-radius: 1px;
 	background: hsl(209, 68%, 63%);
-	font: 1.2em/30px Helvetica, Arial, sans-serif;
+	font: 1.2em/30px sans-serif;
 	color: #fff;
 	display: none;
 	text-align:center;
@@ -219,7 +219,7 @@ section {
 	background: #fff;
 	border-radius: 16px;
 	padding: 10px;
-	font: 1em Helvetica, Arial, sans-serif;
+	font: 1em "Helvetica Neue", "Segoe UI", Arial, sans-serif;
 }
 
 @media screen and (max-width: 800px) {
