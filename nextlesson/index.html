@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" manifest="cache.manifest">
+<head>
+	<meta charset="utf-8">
+	<title>NextLesson</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon" href="touch-icon-iphone.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+
+	<style type="text/css">
+		*, *:before, *:after {box-sizing:border-box;}
+		html,body {margin: 0;border: 0;padding: 0;width: 100%;}
+
+		.day {
+			width: 100%;
+			float: left;
+			margin: 10px 0 60px 0;
+		}
+
+		header {
+			width: 84%;
+			margin: 2px auto;
+			font-family: -apple-system, sans-serif;
+			font-size: 1.4rem;
+			text-align: center;
+			border-bottom: solid 3px #69D2E7;
+		}
+
+		nav {
+			display: block;
+			position: fixed;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.circle {
+			margin: 7px 3px 7px 2px;
+			background-color: #FFAA00;
+			border-radius: 50%;
+			width: 25px;
+			height: 25px;
+			line-height: 25px;
+			text-align: center;
+			color: white;
+			font-family: -apple-system, sans-serif;
+		}
+
+		.hour p {
+			margin: 0;
+			display: none;
+			font: 1.1rem sans-serif;
+			color: orange;
+			text-align: center;
+		}
+
+		.course {
+			margin: auto;
+			width: 84%;
+			font-size: 1.6rem;
+			text-align: center;
+			font-family: -apple-system, sans-serif;
+		}
+
+		.room {
+			font-size: 1.4rem;
+			text-align: center;
+		}
+
+		.color1 {border-left: solid 8px #e74c3c;}
+		.color2 {border-left: solid 8px #2ecc71;}
+		.color3 {border-left: solid 8px #3498db;}
+		.color4 {border-left: solid 8px #9b59b6;}
+		.color5 {border-left: solid 8px #34495e;}
+		.color6 {border-left: solid 8px #f1c40f;}
+		.color7 {border-left: solid 8px #95a5a6;}
+
+
+		@media screen and (orientation: landscape) {
+			.day {
+				width: 20%;
+				margin: 0;
+			}
+
+			header {
+				font-size: 0.80rem;
+				margin: 0 auto;
+				border-bottom: solid 1px #69D2E7;
+			}
+
+			.hour {
+				min-height: 2rem;
+			}
+
+			.hour p {
+				display: block;
+				font-size: 0.7rem;
+			}
+
+			nav {
+				display: none;
+			}
+
+			.course {
+				font-size: 0.75rem;
+				border-left: none;
+			}
+
+			.room {
+				display: none;
+			}
+
+			.color1 {border-left: 0;background-color: #e74c3c;color:white;}
+			.color2 {border-left: 0;background-color: #2ecc71;color:white;}
+			.color3 {border-left: 0;background-color: #3498db;color:white;}
+			.color4 {border-left: 0;background-color: #9b59b6;color:white;}
+			.color5 {border-left: 0;background-color: #34495e;color:white;}
+			.color6 {border-left: 0;background-color: #f1c40f;color:white;}
+			.color7 {border-left: 0;background-color: #95a5a6;color:white;}
+		}
+	</style>
+</head>
+<body>
+
+	<nav>
+		<div class="circle" onclick="scroll_to(M)">M</div>
+		<div class="circle" onclick="scroll_to(T)">T</div>
+		<div class="circle" onclick="scroll_to(W)">W</div>
+		<div class="circle" onclick="scroll_to(Th)">T</div>
+		<div class="circle" onclick="scroll_to(F)">F</div>
+	</nav>
+
+	<div id="M" class="day">
+		<header>Monday</header>
+		<div class="hour"><p>9</p></div>
+		<div class="hour"><p>10</p></div>
+		<div class="hour"><p>11</p></div>
+		<div class="hour"><p>12</p></div>
+		<div class="hour"><p>1</p></div>
+		<div class="hour"><p>2</p></div>
+		<div class="hour"><p>3</p></div>
+		<div class="hour"><p>4</p></div>
+		<div class="hour"><p>5</p></div>
+		<div class="hour"><p>6</p></div>
+		<div class="hour"><p>7</p></div>
+	</div>
+	<div id="T" class="day">
+		<header>Tuesday</header>
+		<div class="hour"><p>9</p></div>
+		<div class="hour"><p>10</p></div>
+		<div class="hour"><p>11</p></div>
+		<div class="hour"><p>12</p></div>
+		<div class="hour"><p>1</p></div>
+		<div class="hour"><p>2</p></div>
+		<div class="hour"><p>3</p></div>
+		<div class="hour"><p>4</p></div>
+		<div class="hour"><p>5</p></div>
+		<div class="hour"><p>6</p></div>
+		<div class="hour"><p>7</p></div>
+	</div>
+	<div id="W" class="day">
+		<header>Wednesday</header>
+		<div class="hour"><p>9</p></div>
+		<div class="hour"><p>10</p></div>
+		<div class="hour"><p>11</p></div>
+		<div class="hour"><p>12</p></div>
+		<div class="hour"><p>1</p></div>
+		<div class="hour"><p>2</p></div>
+		<div class="hour"><p>3</p></div>
+		<div class="hour"><p>4</p></div>
+		<div class="hour"><p>5</p></div>
+		<div class="hour"><p>6</p></div>
+		<div class="hour"><p>7</p></div>
+	</div>
+	<div id="Th" class="day">
+		<header>Thursday</header>
+		<div class="hour"><p>9</p></div>
+		<div class="hour"><p>10</p></div>
+		<div class="hour"><p>11</p></div>
+		<div class="hour"><p>12</p></div>
+		<div class="hour"><p>1</p></div>
+		<div class="hour"><p>2</p></div>
+		<div class="hour"><p>3</p></div>
+		<div class="hour"><p>4</p></div>
+		<div class="hour"><p>5</p></div>
+		<div class="hour"><p>6</p></div>
+		<div class="hour"><p>7</p></div>
+	</div>
+	<div id="F" class="day">
+		<header>Friday</header>
+		<div class="hour"><p>9</p></div>
+		<div class="hour"><p>10</p></div>
+		<div class="hour"><p>11</p></div>
+		<div class="hour"><p>12</p></div>
+		<div class="hour"><p>1</p></div>
+		<div class="hour"><p>2</p></div>
+		<div class="hour"><p>3</p></div>
+		<div class="hour"><p>4</p></div>
+		<div class="hour"><p>5</p></div>
+		<div class="hour"><p>6</p></div>
+		<div class="hour"><p>7</p></div>
+	</div>
+
+
+	<script type="text/javascript">
+		var courses={
+			cmpe451: {
+				name: "CMPE451.01",
+				days: ["T"],
+				hours: [6],
+				room: ["BM B4"],
+				color: 1
+			},
+			cmpe451lab: {
+				name: "CMPE451 Lab",
+				days: ["T","T"],
+				hours: [7,8],
+				room: ["BM B4","BM B4"],
+				color: 1
+			},
+			cmpe443: {
+				name: "CMPE443.01",
+				days: ["W","W","Th"],
+				hours: [4,5,4],
+				room: ["BM A2","BM A2","BM A2"],
+				color: 2
+			},
+			cmpe443lab: {
+				name: "CMPE443 Lab",
+				days: ["W","W"],
+				hours: [2,3],
+				room: ["BM 11","BM 11"],
+				color: 2
+			},
+			cmpe475: {
+				name: "CMPE475.01",
+				days: ["M","M","W"],
+				hours: [2,3,1],
+				room: ["BM B5","BM B5","BM B5"],
+				color: 4
+			},
+			cmpe483: {
+				name: "CMPE483.01",
+				days: ["Th","Th","F"],
+				hours: [5,6,1],
+				room: ["BM A2","BM A2","BM B5"],
+				color: 5
+			},
+			cmpe434: {
+				name: "CMPE434.01",
+				days: ["M","M","M"],
+				hours: [6,7,8],
+				room: ["BM B4","BM B4","BM B4"],
+				color: 6
+			}
+			/**/
+		};
+
+
+		for(var for_courses in courses) {
+			for(var for_hours in courses[for_courses].hours) {
+				var day_of_lesson = courses[for_courses].days[for_hours];
+				var hour_of_lesson = courses[for_courses].hours[for_hours];
+
+				var div_for_room = document.createElement("div");
+				var text_for_room = document.createTextNode(courses[for_courses].room[for_hours]);
+				div_for_room.appendChild(text_for_room);
+				div_for_room.className = "room";
+
+				var div_for_course = document.createElement("div");
+				var text_for_course = document.createTextNode(courses[for_courses].name);
+				div_for_course.appendChild(text_for_course);
+				div_for_course.appendChild(div_for_room);
+				div_for_course.classList.add("course","color"+courses[for_courses].color);
+
+				document.getElementById(day_of_lesson).children[hour_of_lesson].appendChild(div_for_course);
+			}
+		}
+
+		var all_courses = document.getElementsByClassName("course");
+		for(var i = 0; i < all_courses.length; i++) {
+			all_courses[i].previousElementSibling.style.display = "block";
+			all_courses[i].parentNode.nextElementSibling.children[0].style.display = "block";
+		}
+
+		var today = new Date();
+		var week=["M","M","T","W","Th","F","M"];
+		var current_day=week[today.getDay()];
+		var current_hour;
+		if(today.getHours()<9) {
+			current_hour = 1;
+		} else if(today.getHours()>17) {
+			current_hour = 11;
+		} else {
+			current_hour = today.getHours()-7;
+		}
+		if(today.getDay() >0 && today.getDay() < 6) {
+			var current_course = document.getElementById(current_day).children[current_hour];
+			scroll_to(current_course);
+		}
+
+
+		function scroll_to(target) {
+			window.scroll(0,target.getBoundingClientRect().top-document.body.getBoundingClientRect().top);
+		}
+
+	</script>
+
+</body>
+</html>
